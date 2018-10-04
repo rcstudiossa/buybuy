@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">BuyBuy</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    /* TITULOS */
+
+    <string name="activity_categoria">Categorias</string>
+    <string name="activity_produto">Produtos</string>
+    <string name="activity_produto_lista_base">Lista Base</string>
+
+
+    /*PROMPTS, HINT*/
+
+
+    <string name="prompt_categoria">Nome da Categoria*</string>
+    <string name="prompt_produto">Descrição do Produto*</string>
+    <string name="prompt_produto_lista_base">Produto*</string>
+    <string name="prompt_pesquisar_categoria">Pesquisar Categoria...</string>
+    <string name="prompt_pesquisar_produto">Pesquisar Produto...</string>
+
+
+    <string name="gravar">Gravar</string>
+
+
+</resources>

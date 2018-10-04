@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#303F9F</color>
+
+    <color name="colorBGDefault">#FAFAFA</color>
+
+    <color name="colorBGDivider">#6d7cce</color>
+
+    <color name="colorGrayRVItem">#565656</color>
+
+    <color name="colorSMPEPLogoBlue">#68d3ff</color>
+    <color name="colorSMPEPLogoWhite">#def4ff</color>
+    <color name="colorSMPEPLogoBG">#098dce</color>
+
+</resources>

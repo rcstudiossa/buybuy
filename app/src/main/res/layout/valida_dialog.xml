@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorBGDefault"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/img_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#DA5F6A"
+        android:gravity="center"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/img_error_dialog" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:text="Lorem Ipsum"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <View
+            android:id="@+id/separator_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/gradient_separator_dialog"
+            android:layout_below="@id/text_dialog"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/separator_dialog"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="20dp"
+            android:background="#DA5F6A"
+            android:text="OK"
+            android:textColor="@color/colorBGDefault" />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>
