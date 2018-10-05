@@ -60,13 +60,15 @@ public abstract class TemplateAdapter<T extends Serializable> extends RecyclerVi
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView nome;
+        public TextView descricaoLinha1;
+        public TextView descricaoLinha2;
         public ImageButton editBT;
         public ImageButton deleteBT;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            nome = itemView.findViewById(R.id.tv_nome);
+            descricaoLinha1 = itemView.findViewById(R.id.tv_descricao_linha_1);
+            descricaoLinha2 = itemView.findViewById(R.id.tv_descricao_linha_2);
             editBT = itemView.findViewById(R.id.bt_edit);
             deleteBT = itemView.findViewById(R.id.bt_delete);
 

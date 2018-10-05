@@ -53,6 +53,16 @@ public class ProdutoListaBaseFragment extends TemplateFragment {
     }
 
     @Override
+    public void onResume() {
+
+        super.onResume();
+
+        mList = produtoListaBaseBS.pesquisar(new ProdutoListaBaseModel());
+        atualizarLista();
+
+    }
+
+    @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
         super.onCreateOptionsMenu(menu, inflater);
@@ -61,11 +71,15 @@ public class ProdutoListaBaseFragment extends TemplateFragment {
 
     }
 
+    private void atualizarLista() {
+        adapter.setList(mList);
+        adapter.notifyDataSetChanged();
+    }
+
     protected void pesquisarAtivos(String query) {
 
         mList = produtoListaBaseBS.pesquisarAtivos(query);
-        adapter.setList(mList);
-        adapter.notifyDataSetChanged();
+        atualizarLista();
 
     }
 

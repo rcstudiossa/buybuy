@@ -19,6 +19,8 @@
 
 
     <string name="prompt_categoria">Nome da Categoria*</string>
+    <string name="prompt_frequencia">Frequência*</string>
+    <string name="prompt_quantidade">Qtd*</string>
     <string name="prompt_produto">Descrição do Produto*</string>
     <string name="prompt_produto_lista_base">Produto*</string>
     <string name="prompt_pesquisar_categoria">Pesquisar Categoria...</string>

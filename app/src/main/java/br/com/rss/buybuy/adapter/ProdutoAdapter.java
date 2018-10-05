@@ -21,7 +21,7 @@ public class ProdutoAdapter extends TemplateAdapter<ProdutoModel> {
     @Override
     public void onBindViewHolder(TemplateAdapter.ViewHolder categoriaVH, final int position) {
 
-        categoriaVH.nome.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getDescricao()));
+        categoriaVH.descricaoLinha1.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getDescricao()));
 
         categoriaVH.editBT.setOnClickListener(new View.OnClickListener() {
             @Override

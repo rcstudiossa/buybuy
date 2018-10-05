@@ -20,7 +20,7 @@ public class CategoriaAdapter extends TemplateAdapter<CategoriaModel> {
     @Override
     public void onBindViewHolder(TemplateAdapter.ViewHolder categoriaVH, final int position) {
 
-        categoriaVH.nome.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getNome()));
+        categoriaVH.descricaoLinha1.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getNome()));
 
         categoriaVH.editBT.setOnClickListener(new View.OnClickListener() {
             @Override

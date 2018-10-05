@@ -32,9 +32,9 @@ public class ProdutoListaBaseDAO implements CrudDAO<ProdutoListaBaseModel> {
 
     public void inserir(ProdutoListaBaseModel produtoListaBaseModel) {
 
-        Object[] args = {produtoListaBaseModel.getProdutoModel().getId(), produtoListaBaseModel.getQuantidade(), produtoListaBaseModel.getFrequenciaModel().getId()};
+        Object[] args = {produtoListaBaseModel.getProdutoModel().getId(), produtoListaBaseModel.getQuantidade(), produtoListaBaseModel.getFrequenciaModel().getId(), Boolean.TRUE};
 
-        db.execSQL("INSERT INTO lista_base (produto_id, quantidade, frequencia_id, flag_ativo) VALUES(?, ?, ?, TRUE);", args);
+        db.execSQL("INSERT INTO lista_base (produto_id, quantidade, frequencia_id, flag_ativo) VALUES(?, ?, ?, ?);", args);
     }
 
     public void excluir(ProdutoListaBaseModel produtoListaBaseModel) {
@@ -57,7 +57,7 @@ public class ProdutoListaBaseDAO implements CrudDAO<ProdutoListaBaseModel> {
 
         List<ProdutoListaBaseModel> produtos = new ArrayList<>();
 
-        Cursor c = db.rawQuery("SELECT lb.id, p.id, p.descricao, p.unidade_medida_id, (select um.descricao from unidade_medida um where um.id = p.unidade_medida_id), lb.quantidade, lb.frequencia_id, (select f.descricao from frequencia f where f.id = lb.frequencia_id) FROM lista_base lb, produto p where lb.produto_id = p.id and p.flag_ativo and lb.flag_ativo order by 3;", null);
+        Cursor c = db.rawQuery("SELECT lb.id, p.id, p.descricao, p.unidade_medida_id, (select um.abreviacao from unidade_medida um where um.id = p.unidade_medida_id), lb.quantidade, lb.frequencia_id, (select f.descricao from frequencia f where f.id = lb.frequencia_id) FROM lista_base lb, produto p where lb.produto_id = p.id and p.flag_ativo and lb.flag_ativo order by 3;", null);
 
         ProdutoModel produtoModel;
 
@@ -85,7 +85,7 @@ public class ProdutoListaBaseDAO implements CrudDAO<ProdutoListaBaseModel> {
 
         List<ProdutoListaBaseModel> produtos = new ArrayList<>();
 
-        Cursor c = db.rawQuery("SELECT lb.id, p.id, p.descricao, p.unidade_medida_id, (select um.descricao from unidade_medida um where um.id = p.unidade_medida_id), lb.quantidade, lb.frequencia_id, (select f.descricao from frequencia f where f.id = lb.frequencia_id) FROM lista_base lb, produto p where lb.produto_id = p.id and p.flag_ativo and lb.flag_ativo and upper(p.descricao) like upper(?) order by 3;", args);
+        Cursor c = db.rawQuery("SELECT lb.id, p.id, p.descricao, p.unidade_medida_id, (select um.abreviacao from unidade_medida um where um.id = p.unidade_medida_id), lb.quantidade, lb.frequencia_id, (select f.descricao from frequencia f where f.id = lb.frequencia_id) FROM lista_base lb, produto p where lb.produto_id = p.id and p.flag_ativo and lb.flag_ativo and upper(p.descricao) like upper(?) order by 3;", args);
 
         ProdutoModel produtoModel;
 

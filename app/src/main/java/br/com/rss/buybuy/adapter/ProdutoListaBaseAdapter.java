@@ -2,7 +2,10 @@ package br.com.rss.buybuy.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.List;
 import java.util.Locale;
@@ -21,7 +24,8 @@ public class ProdutoListaBaseAdapter extends TemplateAdapter<ProdutoListaBaseMod
     @Override
     public void onBindViewHolder(TemplateAdapter.ViewHolder categoriaVH, final int position) {
 
-        categoriaVH.nome.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getProdutoModel().getDescricao()));
+        categoriaVH.descricaoLinha1.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getProdutoModel().getDescricao()));
+        categoriaVH.descricaoLinha2.setText(String.format(Locale.getDefault(), "%s %s, %s", mList.get(position).getQuantidade(), mList.get(position).getProdutoModel().getUnidadeMedidaModel().getAbreviacao(), mList.get(position).getFrequenciaModel().getDescricao()));
 
         categoriaVH.editBT.setOnClickListener(new View.OnClickListener() {
             @Override

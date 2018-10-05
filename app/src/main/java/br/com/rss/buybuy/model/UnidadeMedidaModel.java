@@ -7,13 +7,15 @@ package br.com.rss.buybuy.model;
 public class UnidadeMedidaModel extends BaseModel {
 
     private String descricao;
+    private String abreviacao;
 
     public UnidadeMedidaModel() {
+
     }
 
-    public UnidadeMedidaModel(Long id, String descricao) {
+    public UnidadeMedidaModel(Long id, String abreviacao) {
         this.id = id;
-        this.descricao = descricao;
+        this.abreviacao = abreviacao;
     }
 
     public String getDescricao() {
@@ -21,6 +23,14 @@ public class UnidadeMedidaModel extends BaseModel {
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getAbreviacao() {
+        return abreviacao;
+    }
+
+    public void setAbreviacao(String abreviacao) {
+        this.abreviacao = abreviacao;
     }
 
     @Override

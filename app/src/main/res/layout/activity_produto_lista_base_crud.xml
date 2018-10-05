@@ -64,6 +64,46 @@
 
             </LinearLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_quantidade"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_quantidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/prompt_quantidade"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:maxLines="1" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_frequencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/prompt_frequencia"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <Spinner
+                    android:id="@+id/spinner_frequencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="@drawable/spinner_item_layout" />
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btn_gravar"
                 android:layout_width="match_parent"

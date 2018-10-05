@@ -37,7 +37,7 @@ public class FrequenciaModel extends BaseModel {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append(id).append(": ").append(this.descricao);
+        sb.append(this.descricao);
 
         return sb.toString();
 
