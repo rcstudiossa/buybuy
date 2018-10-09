@@ -38,7 +38,7 @@ public class UnidadeMedidaModel extends BaseModel {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append(id).append(": ").append(this.descricao);
+        sb.append(this.abreviacao);
 
         return sb.toString();
 

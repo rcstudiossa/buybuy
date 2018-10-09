@@ -1,24 +1,18 @@
 package br.com.rss.buybuy.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
 import java.util.Locale;
 
 import br.com.rss.buybuy.R;
-import br.com.rss.buybuy.activity.ProdutoActivity;
-import br.com.rss.buybuy.business.ProdutoBS;
-import br.com.rss.buybuy.business.ProdutoBS;
 import br.com.rss.buybuy.model.CategoriaModel;
-import br.com.rss.buybuy.model.ProdutoModel;
 import br.com.rss.buybuy.model.ProdutoModel;
 
 public class CategoriaProdutoAdapter extends RecyclerView.Adapter<CategoriaProdutoAdapter.ViewHolder> {

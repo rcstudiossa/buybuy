@@ -45,7 +45,7 @@ public class CategoriaModel extends BaseModel {
 
         StringBuilder sb = new StringBuilder();
 
-        sb.append(id).append(": ").append(this.nome);
+        sb.append(this.nome);
 
         return sb.toString();
 

@@ -15,11 +15,11 @@ import android.widget.Spinner;
 import java.util.List;
 
 import br.com.rss.buybuy.R;
+import br.com.rss.buybuy.adapter.ProdutoAdapter;
 import br.com.rss.buybuy.business.ComboBS;
 import br.com.rss.buybuy.business.ProdutoBS;
 import br.com.rss.buybuy.business.ProdutoListaBaseBS;
 import br.com.rss.buybuy.business.CrudBS;
-import br.com.rss.buybuy.fragment.ProdutoFragment;
 import br.com.rss.buybuy.model.FrequenciaModel;
 import br.com.rss.buybuy.model.ProdutoListaBaseModel;
 import br.com.rss.buybuy.model.ProdutoModel;
@@ -124,11 +124,37 @@ public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseM
         ivListarProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProdutoListaBaseActivity.this, ProdutoFragment.class);
-                startActivity(intent);
+                Intent intent = new Intent(ProdutoListaBaseActivity.this, CategoriaProdutoRVActivity.class);
+                startActivityForResult(intent, 1);
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Verfica se o requestCode é o mesmo que foi passado
+        if(requestCode==1 && resultCode == RESULT_OK)
+        {
+
+            this.crudModel = (ProdutoListaBaseModel) data.getSerializableExtra("registro");
+
+            if (!Utilitario.isEmpty(this.crudModel.getProdutoModel()) && !Utilitario.isEmpty(this.crudModel.getProdutoModel().getId())) {
+                etProdutos.setText(this.crudModel.getProdutoModel().getDescricao());
+                this.produtoModel = this.crudModel.getProdutoModel();
+            }
+
+            if (!Utilitario.isEmpty(this.crudModel.getQuantidade())) {
+                etQuantidade.setText(this.crudModel.getQuantidade().toString());
+            }
+
+            if (!Utilitario.isEmpty(this.crudModel.getFrequenciaModel()) && !Utilitario.isEmpty(this.crudModel.getFrequenciaModel().getId())) {
+                spFrequencia.setSelection(((ArrayAdapter)spFrequencia.getAdapter()).getPosition(this.crudModel.getFrequenciaModel()));
+            }
+
+        }
     }
 
     private void instanciarProdutoListaBaseModel() {
@@ -146,7 +172,9 @@ public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseM
                 this.produtoModel = this.crudModel.getProdutoModel();
             }
 
-            etQuantidade.setText(this.crudModel.getQuantidade().toString());
+            if (!Utilitario.isEmpty(this.crudModel.getQuantidade())) {
+                etQuantidade.setText(this.crudModel.getQuantidade().toString());
+            }
 
             if (!Utilitario.isEmpty(this.crudModel.getFrequenciaModel()) && !Utilitario.isEmpty(this.crudModel.getFrequenciaModel().getId())) {
                 spFrequencia.setSelection(((ArrayAdapter)spFrequencia.getAdapter()).getPosition(this.crudModel.getFrequenciaModel()));
@@ -183,6 +211,12 @@ public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseM
         }
 
         return valido;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.instanciarProdutoListaBaseModel();
     }
 
     protected void gravar() {

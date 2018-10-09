@@ -16,17 +16,13 @@ import br.com.rss.buybuy.model.ProdutoModel;
 import br.com.rss.buybuy.model.UnidadeMedidaModel;
 import br.com.rss.buybuy.util.Utilitario;
 
-public class ProdutoActivity extends TemplateActivity<ProdutoModel> {
+public class ProdutoCrudActivity extends TemplateActivity<ProdutoModel> {
 
     private ProdutoBS produtoBS;
     private EditText etDescricao;
     private Spinner spCategoria;
     private Spinner spUnidadeMedida;
     private CheckBox mFlagAtivo;
-
-
-    public ProdutoActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +100,7 @@ public class ProdutoActivity extends TemplateActivity<ProdutoModel> {
         }
 
         if (!aviso.isEmpty()) {
-            Utilitario.alertar(ProdutoActivity.this, aviso);
+            Utilitario.alertar(ProdutoCrudActivity.this, aviso);
         }
 
         return valido;
@@ -136,11 +132,6 @@ public class ProdutoActivity extends TemplateActivity<ProdutoModel> {
     protected void voltar() {
 
         finish();
-
-        /*Intent intent = new Intent(ProdutoActivity.this, MainActivity.class);
-        intent.putExtra("fragment", R.id.nav_produto);
-        startActivity(intent);
-        finish();*/
 
     }
 

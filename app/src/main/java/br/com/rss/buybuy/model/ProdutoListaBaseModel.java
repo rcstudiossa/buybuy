@@ -14,6 +14,11 @@ public class ProdutoListaBaseModel extends BaseModel {
 
     public ProdutoListaBaseModel(){}
 
+    public ProdutoListaBaseModel(ProdutoModel produtoModel){
+
+        this.produtoModel = produtoModel;
+    }
+
     public ProdutoListaBaseModel(Long id, ProdutoModel produtoModel, Double quantidade, FrequenciaModel frequenciaModel) {
         this.id = id;
         this.produtoModel = produtoModel;
