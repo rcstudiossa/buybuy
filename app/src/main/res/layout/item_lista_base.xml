@@ -25,6 +25,15 @@
             android:layout_alignParentStart="true"
             android:textColor="@android:color/black" />
 
+        <TextView
+            android:id="@+id/tv_descricao_linha_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_categoria"
+            android:textSize="@dimen/item_rv_text_size"
+            android:layout_alignParentStart="true"
+            android:textColor="@android:color/black" />
+
     </LinearLayout>
 
 
@@ -36,7 +45,8 @@
         android:src="@drawable/ic_edit"
         android:layout_alignParentTop="true"
         android:layout_toStartOf="@+id/bt_delete"
-        android:background="@null"/>
+        android:background="@null"
+        android:visibility="gone"/>
 
     <ImageButton
         android:layout_alignParentRight="true"

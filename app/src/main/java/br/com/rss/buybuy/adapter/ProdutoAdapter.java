@@ -1,6 +1,5 @@
 package br.com.rss.buybuy.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -11,7 +10,6 @@ import java.util.Locale;
 
 import br.com.rss.buybuy.R;
 import br.com.rss.buybuy.activity.ProdutoCrudActivity;
-import br.com.rss.buybuy.activity.ProdutoListaBaseActivity;
 import br.com.rss.buybuy.business.ProdutoBS;
 import br.com.rss.buybuy.model.ProdutoListaBaseModel;
 import br.com.rss.buybuy.model.ProdutoModel;

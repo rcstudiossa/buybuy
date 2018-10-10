@@ -58,7 +58,7 @@ public class CategoriaDAO implements CrudDAO<CategoriaModel> {
 
         List<CategoriaModel> categoriaList = new ArrayList<>();
 
-        Cursor c = db.rawQuery("SELECT * FROM categoria order by id;", null);
+        Cursor c = db.rawQuery("SELECT * FROM categoria order by nome;", null);
 
         if (c.moveToFirst()) {
             do {
@@ -76,7 +76,7 @@ public class CategoriaDAO implements CrudDAO<CategoriaModel> {
 
         List<CategoriaModel> categoriaList = new ArrayList<>();
 
-        Cursor c = db.rawQuery("SELECT * FROM categoria where flag_ativo = 1 order by id;", null);
+        Cursor c = db.rawQuery("SELECT * FROM categoria where flag_ativo = 1 order by nome;", null);
 
         if (c.moveToFirst()) {
             do {
@@ -98,7 +98,7 @@ public class CategoriaDAO implements CrudDAO<CategoriaModel> {
 
         String[] args = {s};
 
-        Cursor c = db.rawQuery("SELECT * FROM categoria where flag_ativo = 1 and upper(nome) like upper(?) order by id;", args);
+        Cursor c = db.rawQuery("SELECT * FROM categoria where flag_ativo = 1 and upper(nome) like upper(?) order by nome;", args);
 
         if (c.moveToFirst()) {
             do {
