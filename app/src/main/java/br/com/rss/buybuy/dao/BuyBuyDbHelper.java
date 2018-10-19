@@ -19,10 +19,8 @@ public class BuyBuyDbHelper extends SQLiteOpenHelper {
     public static final String SQL_DELETE_UNIDADE_MEDIDA = "DROP TABLE IF EXISTS unidade_medida;";
     public static final String SQL_CREATE_PRODUTO = "CREATE TABLE IF NOT EXISTS produto (id INTEGER PRIMARY KEY, descricao VARCHAR(100), categoria_id INTEGER, unidade_medida_id INTEGER, flag_ativo BOOLEAN, FOREIGN KEY(categoria_id) REFERENCES categoria(id), FOREIGN KEY(unidade_medida_id) REFERENCES unidade_medida(id));";
     public static final String SQL_DELETE_PRODUTO = "DROP TABLE IF EXISTS produto;";
-    public static final String SQL_CREATE_LISTA_BASE = "CREATE TABLE IF NOT EXISTS lista_base (id INTEGER PRIMARY KEY, descricao VARCHAR(100), icone VARCHAR(30), flag_recorrente BOOLEAN, flag_ativo BOOLEAN);";
-    public static final String SQL_DELETE_LISTA_BASE = "DROP TABLE IF EXISTS lista_base;";
-    public static final String SQL_CREATE_LISTA_BASE_PRODUTO = "CREATE TABLE IF NOT EXISTS lista_base_produto (id INTEGER PRIMARY KEY, lista_base_id INTEGER, produto_id INTEGER, frequencia_id INTEGER, quantidade DOUBLE, flag_ativo BOOLEAN, FOREIGN KEY(lista_base_id) REFERENCES lista_base(id), FOREIGN KEY(produto_id) REFERENCES produto(id), FOREIGN KEY(frequencia_id) REFERENCES frequencia(id));";
-    public static final String SQL_DELETE_LISTA_BASE_PRODUTO = "DROP TABLE IF EXISTS lista_base_produto;";
+    public static final String SQL_CREATE_PRODUTO_LISTA_BASE = "CREATE TABLE IF NOT EXISTS produto_lista_base (id INTEGER PRIMARY KEY, produto_id INTEGER, marcas VARCHAR(100), frequencia_id INTEGER, quantidade DOUBLE, flag_ativo BOOLEAN, FOREIGN KEY(produto_id) REFERENCES produto(id), FOREIGN KEY(frequencia_id) REFERENCES frequencia(id));";
+    public static final String SQL_DELETE_PRODUTO_LISTA_BASE = "DROP TABLE IF EXISTS produto_lista_base;";
     public static final String SQL_CREATE_LOJA = "CREATE TABLE IF NOT EXISTS loja (id INTEGER PRIMARY KEY, nome VARCHAR(50), localizacao VARCHAR(100), flag_ativo BOOLEAN);";
     public static final String SQL_DELETE_LOJA = "DROP TABLE IF EXISTS loja;";
     public static final String SQL_CREATE_LISTA_COMPRA = "CREATE TABLE IF NOT EXISTS lista_compra (id INTEGER PRIMARY KEY, loja_id INTEGER, data_compra DATE, flag_ativo BOOLEAN, FOREIGN KEY(loja_id) REFERENCES loja(id));";
@@ -44,8 +42,7 @@ public class BuyBuyDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_FREQUENCIA);
         db.execSQL(SQL_CREATE_UNIDADE_MEDIDA);
         db.execSQL(SQL_CREATE_PRODUTO);
-        db.execSQL(SQL_CREATE_LISTA_BASE);
-        db.execSQL(SQL_CREATE_LISTA_BASE_PRODUTO);
+        db.execSQL(SQL_CREATE_PRODUTO_LISTA_BASE);
         db.execSQL(SQL_CREATE_LOJA);
         db.execSQL(SQL_CREATE_LISTA_COMPRA);
         db.execSQL(SQL_CREATE_LISTA_COMPRA_PRODUTO);
@@ -59,8 +56,7 @@ public class BuyBuyDbHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_DELETE_LISTA_COMPRA_PRODUTO);
         db.execSQL(SQL_DELETE_LISTA_COMPRA);
-        db.execSQL(SQL_DELETE_LISTA_BASE_PRODUTO);
-        db.execSQL(SQL_DELETE_LISTA_BASE);
+        db.execSQL(SQL_DELETE_PRODUTO_LISTA_BASE);
         db.execSQL(SQL_DELETE_PRODUTO);
         //db.execSQL(SQL_DELETE_CATEGORIA);
         db.execSQL(SQL_DELETE_FREQUENCIA);
@@ -88,11 +84,11 @@ public class BuyBuyDbHelper extends SQLiteOpenHelper {
 
     private void carregarUnidades(SQLiteDatabase db) {
 
-        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('UNIDADE', 'Und', 1);");
-        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('QUILOGRAMA', 'kg', 2);");
-        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('GRAMA', 'g', 3);");
-        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('LITRO', 'L', 4);");
-        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('MILILITRO', 'ml', 5);");
+        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('Unidade', 'Und', 1);");
+        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('Quilograma', 'kg', 2);");
+        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('Grama', 'g', 3);");
+        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('Litro', 'L', 4);");
+        db.execSQL("INSERT INTO UNIDADE_MEDIDA (DESCRICAO, ABREVIACAO, ORDEM) VALUES ('Mililitro', 'ml', 5);");
 
     }
 

@@ -14,8 +14,8 @@ import android.view.MenuItem;
 
 import br.com.rss.buybuy.R;
 import br.com.rss.buybuy.fragment.CategoriaFragment;
-import br.com.rss.buybuy.fragment.ProdutoFragment;
 import br.com.rss.buybuy.fragment.ProdutoListaBaseFragment;
+import br.com.rss.buybuy.fragment.ProdutoFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -106,10 +106,8 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item_produto clicks here.
-        int id = item.getItemId();
 
-        displaySelectedScreen(id);
+        displaySelectedScreen(item.getItemId());
 
         return true;
     }

@@ -11,6 +11,7 @@ public class CategoriaModel extends BaseModel {
 
     private String nome;
     private List<ProdutoModel> produtos;
+    private List<ProdutoListaBaseModel> produtosListaBase;
 
     public CategoriaModel(){}
 
@@ -38,6 +39,14 @@ public class CategoriaModel extends BaseModel {
 
     public void setProdutos(List<ProdutoModel> produtos) {
         this.produtos = produtos;
+    }
+
+    public List<ProdutoListaBaseModel> getProdutosListaBase() {
+        return produtosListaBase;
+    }
+
+    public void setProdutosListaBase(List<ProdutoListaBaseModel> produtosListaBase) {
+        this.produtosListaBase = produtosListaBase;
     }
 
     @Override

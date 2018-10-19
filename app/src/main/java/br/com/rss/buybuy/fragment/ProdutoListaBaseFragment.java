@@ -12,16 +12,18 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.rss.buybuy.R;
-import br.com.rss.buybuy.activity.ProdutoListaBaseActivity;
-import br.com.rss.buybuy.adapter.ProdutoListaBaseAdapter;
-import br.com.rss.buybuy.business.ProdutoListaBaseBS;
-import br.com.rss.buybuy.model.ProdutoListaBaseModel;
+
+import br.com.rss.buybuy.activity.ProdutoListaBaseCrudActivity;
+import br.com.rss.buybuy.adapter.CategoriaProdutoAdapter;
+import br.com.rss.buybuy.adapter.CategoriaProdutoListaBaseAdapter;
+import br.com.rss.buybuy.business.CategoriaBS;
+import br.com.rss.buybuy.model.CategoriaModel;
 
 public class ProdutoListaBaseFragment extends TemplateFragment {
 
-    private List<ProdutoListaBaseModel> mList;
-    private ProdutoListaBaseBS produtoListaBaseBS;
-    private ProdutoListaBaseAdapter adapter;
+    private List<CategoriaModel> mList;
+    private CategoriaBS categoriaBS;
+    private CategoriaProdutoListaBaseAdapter adapter;
 
     @Nullable
     @Override
@@ -29,13 +31,13 @@ public class ProdutoListaBaseFragment extends TemplateFragment {
 
         View view = inflater.inflate(R.layout.fragment_produto_lista_base, container, false);
 
-        mRecyclerView = view.findViewById(R.id.rv_lista);
+        mRecyclerView = view.findViewById(R.id.rv_lista_categorias);
         configRV();
 
-        produtoListaBaseBS = new ProdutoListaBaseBS(getActivity());
+        this.categoriaBS = new CategoriaBS(getActivity());
 
-        mList = produtoListaBaseBS.pesquisar(new ProdutoListaBaseModel());
-        adapter = new ProdutoListaBaseAdapter(getActivity(), mList);
+        mList = this.categoriaBS.pesquisarCategoriasProdutosListaBase();
+        adapter = new CategoriaProdutoListaBaseAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(adapter);
 
         return view;
@@ -48,7 +50,7 @@ public class ProdutoListaBaseFragment extends TemplateFragment {
 
         super.onViewCreated(view, savedInstanceState);
 
-        getActivity().setTitle(R.string.activity_produto_lista_base);
+        getActivity().setTitle(R.string.activity_lista_base);
 
     }
 
@@ -57,7 +59,7 @@ public class ProdutoListaBaseFragment extends TemplateFragment {
 
         super.onResume();
 
-        mList = produtoListaBaseBS.pesquisar(new ProdutoListaBaseModel());
+        mList = categoriaBS.pesquisarCategoriasProdutosListaBase();
         atualizarLista();
 
     }
@@ -67,7 +69,7 @@ public class ProdutoListaBaseFragment extends TemplateFragment {
 
         super.onCreateOptionsMenu(menu, inflater);
 
-        searchView.setQueryHint(getString(R.string.prompt_pesquisar_produto));
+        searchView.setQueryHint(getString(R.string.prompt_pesquisar_lista_base));
 
     }
 
@@ -78,14 +80,14 @@ public class ProdutoListaBaseFragment extends TemplateFragment {
 
     protected void pesquisarAtivos(String query) {
 
-        mList = produtoListaBaseBS.pesquisarAtivos(query);
+        mList = categoriaBS.pesquisarCategoriasProdutosListaBase(query);
         atualizarLista();
 
     }
 
     protected Class getCrudActivity() {
 
-        return ProdutoListaBaseActivity.class;
+        return ProdutoListaBaseCrudActivity.class;
 
     }
 

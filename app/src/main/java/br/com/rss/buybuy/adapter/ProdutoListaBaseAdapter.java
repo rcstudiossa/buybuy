@@ -2,16 +2,13 @@ package br.com.rss.buybuy.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.util.List;
 import java.util.Locale;
 
 import br.com.rss.buybuy.R;
-import br.com.rss.buybuy.activity.ProdutoListaBaseActivity;
+import br.com.rss.buybuy.activity.ProdutoListaBaseCrudActivity;
 import br.com.rss.buybuy.business.ProdutoListaBaseBS;
 import br.com.rss.buybuy.model.ProdutoListaBaseModel;
 
@@ -22,16 +19,16 @@ public class ProdutoListaBaseAdapter extends TemplateAdapter<ProdutoListaBaseMod
     }
 
     @Override
-    public void onBindViewHolder(TemplateAdapter.ViewHolder categoriaVH, final int position) {
+    public void onBindViewHolder(TemplateAdapter.ViewHolder produtoListaBaseVH, final int position) {
 
-        categoriaVH.descricaoLinha1.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getProdutoModel().getDescricao()));
-        categoriaVH.descricaoLinha2.setText(String.format(Locale.getDefault(), "%s %s, %s", mList.get(position).getQuantidade(), mList.get(position).getProdutoModel().getUnidadeMedidaModel().getAbreviacao(), mList.get(position).getFrequenciaModel().getDescricao()));
+        produtoListaBaseVH.descricaoLinha1.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getProdutoModel().getDescricao()));
+        produtoListaBaseVH.descricaoLinha2.setText(String.format(Locale.getDefault(), "%s %s, %s", mList.get(position).getQuantidade(), mList.get(position).getProdutoModel().getUnidadeMedidaModel().getAbreviacao(), mList.get(position).getFrequenciaModel().getDescricao()));
 
-        categoriaVH.editBT.setOnClickListener(new View.OnClickListener() {
+        produtoListaBaseVH.editBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(view.getContext(), ProdutoListaBaseActivity.class);
+                Intent intent = new Intent(view.getContext(), ProdutoListaBaseCrudActivity.class);
                 intent.putExtra("registro", mList.get(position));
 
                 view.getContext().startActivity(intent);
@@ -40,7 +37,7 @@ public class ProdutoListaBaseAdapter extends TemplateAdapter<ProdutoListaBaseMod
 
         });
 
-        categoriaVH.deleteBT.setOnClickListener(new View.OnClickListener() {
+        produtoListaBaseVH.deleteBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 removeListItem(view, position);

@@ -115,7 +115,12 @@ public final class Utilitario {
 
     public static void avisoSucesso(Context context) {
 
-        Toast.makeText(context, "Operação realizada com sucesso", Toast.LENGTH_SHORT).show();
+        Utilitario.aviso("Operação realizada com sucesso", context);
+
+    }
+    public static void aviso(String texto, Context context) {
+
+        Toast.makeText(context, texto, Toast.LENGTH_SHORT).show();
 
     }
 

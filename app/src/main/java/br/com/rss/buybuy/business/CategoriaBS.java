@@ -9,7 +9,9 @@ import br.com.rss.buybuy.dao.BuyBuyDbHelper;
 import br.com.rss.buybuy.dao.CategoriaDAO;
 import br.com.rss.buybuy.dao.CrudDAO;
 import br.com.rss.buybuy.dao.ProdutoDAO;
+import br.com.rss.buybuy.dao.ProdutoListaBaseDAO;
 import br.com.rss.buybuy.model.CategoriaModel;
+import br.com.rss.buybuy.model.ProdutoListaBaseModel;
 import br.com.rss.buybuy.model.ProdutoModel;
 import br.com.rss.buybuy.util.Utilitario;
 
@@ -66,7 +68,7 @@ public class CategoriaBS extends CrudBS<CategoriaModel>{
 
 
 
-    public List<CategoriaModel> pesquisarProdutos() {
+    public List<CategoriaModel> pesquisarCategoriasProdutos() {
 
         List<ProdutoModel> produtos = new ProdutoDAO(this.buyBuyDbHelper).pesquisar(new ProdutoModel());
 
@@ -74,7 +76,7 @@ public class CategoriaBS extends CrudBS<CategoriaModel>{
 
     }
 
-    public List<CategoriaModel> pesquisarProdutos(String query) {
+    public List<CategoriaModel> pesquisarCategoriasProdutos(String query) {
 
         List<ProdutoModel> produtos = new ProdutoDAO(this.buyBuyDbHelper).pesquisar(query);
 
@@ -97,6 +99,44 @@ public class CategoriaBS extends CrudBS<CategoriaModel>{
             }
 
             categoriaModel.getProdutos().add(produtoModel);
+
+        }
+
+        return categorias;
+
+    }
+
+    public List<CategoriaModel> pesquisarCategoriasProdutosListaBase() {
+
+        List<ProdutoListaBaseModel> produtos = new ProdutoListaBaseDAO(this.buyBuyDbHelper).pesquisar(new ProdutoListaBaseModel());
+
+        return getProdutosListaBase(produtos);
+
+    }
+
+    public List<CategoriaModel> pesquisarCategoriasProdutosListaBase(String query) {
+
+        List<ProdutoListaBaseModel> produtos = new ProdutoListaBaseDAO(this.buyBuyDbHelper).pesquisar(query);
+
+        return getProdutosListaBase(produtos);
+
+    }
+
+    private List<CategoriaModel> getProdutosListaBase(List<ProdutoListaBaseModel> produtos) {
+
+        List<CategoriaModel> categorias = new ArrayList<CategoriaModel>();
+
+        CategoriaModel categoriaModel = null;
+
+        for (ProdutoListaBaseModel produtoListaBaseModel: produtos) {
+
+            if (!produtoListaBaseModel.getProdutoModel().getCategoriaModel().equals(categoriaModel)) {
+                categoriaModel = new CategoriaModel(produtoListaBaseModel.getProdutoModel().getCategoriaModel().getId(), produtoListaBaseModel.getProdutoModel().getCategoriaModel().getNome());
+                categoriaModel.setProdutosListaBase(new ArrayList<ProdutoListaBaseModel>());
+                categorias.add(categoriaModel);
+            }
+
+            categoriaModel.getProdutosListaBase().add(produtoListaBaseModel);
 
         }
 

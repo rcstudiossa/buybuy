@@ -27,7 +27,7 @@ public class ProdutoCrudActivity extends TemplateActivity<ProdutoModel> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_produto_crud);
+        setContentView(R.layout.activity_crud_produto);
 
         super.onCreate(savedInstanceState);
 

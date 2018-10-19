@@ -23,7 +23,7 @@
         </activity>
 
         <activity
-            android:name=".activity.CategoriaActivity"
+            android:name=".activity.CategoriaCrudActivity"
             android:label="@string/activity_categoria"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
@@ -38,14 +38,14 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.ProdutoListaBaseActivity"
-            android:label="@string/activity_produto_lista_base"
+            android:name=".activity.ProdutoListaBaseCrudActivity"
+            android:label="@string/activity_lista_base"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.CategoriaProdutoRVActivity"
+            android:name=".activity.ProdutoRVActivity"
             android:label="@string/activity_produto"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"

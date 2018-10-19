@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Locale;
 
 import br.com.rss.buybuy.R;
-import br.com.rss.buybuy.activity.CategoriaActivity;
+import br.com.rss.buybuy.activity.CategoriaCrudActivity;
 import br.com.rss.buybuy.business.CategoriaBS;
 import br.com.rss.buybuy.model.CategoriaModel;
 
@@ -26,7 +26,7 @@ public class CategoriaAdapter extends TemplateAdapter<CategoriaModel> {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(view.getContext(), CategoriaActivity.class);
+                Intent intent = new Intent(view.getContext(), CategoriaCrudActivity.class);
                 intent.putExtra("registro", mList.get(position));
 
                 view.getContext().startActivity(intent);

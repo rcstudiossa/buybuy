@@ -9,6 +9,7 @@ import java.util.List;
 public class ProdutoListaBaseModel extends BaseModel {
 
     private ProdutoModel produtoModel;
+    private String marcas;
     private Double quantidade;
     private FrequenciaModel frequenciaModel;
 
@@ -19,11 +20,12 @@ public class ProdutoListaBaseModel extends BaseModel {
         this.produtoModel = produtoModel;
     }
 
-    public ProdutoListaBaseModel(Long id, ProdutoModel produtoModel, Double quantidade, FrequenciaModel frequenciaModel) {
+    public ProdutoListaBaseModel(Long id, ProdutoModel produtoModel, String marcas, Double quantidade, FrequenciaModel frequenciaModel) {
         this.id = id;
         this.produtoModel = produtoModel;
         this.quantidade = quantidade;
         this.frequenciaModel = frequenciaModel;
+        this.marcas = marcas;
     }
 
     public ProdutoModel getProdutoModel() {
@@ -32,6 +34,14 @@ public class ProdutoListaBaseModel extends BaseModel {
 
     public void setProdutoModel(ProdutoModel produtoModel) {
         this.produtoModel = produtoModel;
+    }
+
+    public String getMarcas() {
+        return marcas;
+    }
+
+    public void setMarcas(String marcas) {
+        this.marcas = marcas;
     }
 
     public Double getQuantidade() {

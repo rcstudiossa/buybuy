@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -21,7 +20,7 @@ import br.com.rss.buybuy.model.CategoriaModel;
 import br.com.rss.buybuy.model.ProdutoListaBaseModel;
 import br.com.rss.buybuy.util.Utilitario;
 
-public class CategoriaProdutoRVActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, ProdutoAdapter.CallbackInterface{
+public class ProdutoRVActivity extends AppCompatActivity implements SearchView.OnQueryTextListener, ProdutoAdapter.CallbackInterface{
 
     private List<CategoriaModel> mList;
     private CategoriaBS categoriaBS;
@@ -33,7 +32,7 @@ public class CategoriaProdutoRVActivity extends AppCompatActivity implements Sea
 
     protected void onCreate(Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_rv_categoria_produto);
+        setContentView(R.layout.activity_rv_produto);
 
         super.onCreate(savedInstanceState);
 
@@ -50,7 +49,7 @@ public class CategoriaProdutoRVActivity extends AppCompatActivity implements Sea
 
         super.onResume();
 
-        mList = categoriaBS.pesquisarProdutos();
+        mList = categoriaBS.pesquisarCategoriasProdutos();
         atualizarLista();
 
     }
@@ -66,7 +65,7 @@ public class CategoriaProdutoRVActivity extends AppCompatActivity implements Sea
 
         categoriaBS = new CategoriaBS(this);
 
-        mList = categoriaBS.pesquisarProdutos();
+        mList = categoriaBS.pesquisarCategoriasProdutos();
         adapter = new CategoriaProdutoAdapter(this, mList);
         mRecyclerView.setAdapter(adapter);
 
@@ -95,7 +94,7 @@ public class CategoriaProdutoRVActivity extends AppCompatActivity implements Sea
             @Override
             public void onClick(View view) {
 
-            Intent intent = new Intent(CategoriaProdutoRVActivity.this, ProdutoCrudActivity.class);
+            Intent intent = new Intent(ProdutoRVActivity.this, ProdutoCrudActivity.class);
             startActivity(intent);
 
             }
@@ -133,7 +132,7 @@ public class CategoriaProdutoRVActivity extends AppCompatActivity implements Sea
 
     private void pesquisarAtivos(String query) {
 
-        mList = categoriaBS.pesquisarProdutos(query);
+        mList = categoriaBS.pesquisarCategoriasProdutos(query);
         atualizarLista();
 
     }

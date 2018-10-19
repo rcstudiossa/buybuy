@@ -99,12 +99,16 @@ public abstract class TemplateFragment extends Fragment implements SearchView.On
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getActivity(), getCrudActivity());
-                startActivity(intent);
+                executeActionFab();
 
             }
         });
 
+    }
+
+    protected void executeActionFab() {
+        Intent intent = new Intent(getActivity(), getCrudActivity());
+        startActivity(intent);
     }
 
     protected abstract Class getCrudActivity();

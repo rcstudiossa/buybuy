@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.com.rss.buybuy.R;
-import br.com.rss.buybuy.activity.CategoriaActivity;
+import br.com.rss.buybuy.activity.CategoriaCrudActivity;
 import br.com.rss.buybuy.adapter.CategoriaAdapter;
 import br.com.rss.buybuy.business.CategoriaBS;
 import br.com.rss.buybuy.model.CategoriaModel;
@@ -71,7 +71,7 @@ public class CategoriaFragment extends TemplateFragment {
 
     protected Class getCrudActivity() {
 
-        return CategoriaActivity.class;
+        return CategoriaCrudActivity.class;
 
     }
 

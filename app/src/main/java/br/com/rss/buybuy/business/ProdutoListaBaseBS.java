@@ -47,13 +47,13 @@ public class ProdutoListaBaseBS extends CrudBS<ProdutoListaBaseModel>{
 
     }
 
-    public List<ProdutoListaBaseModel> pesquisarAtivos(String query) {
+    public List<ProdutoListaBaseModel> pesquisar(String query) {
 
         if (Utilitario.isEmpty(query)) {
            return produtoListaBaseDAO.pesquisar(new ProdutoListaBaseModel());
         }
 
-        return produtoListaBaseDAO.pesquisarAtivos(query);
+        return produtoListaBaseDAO.pesquisar(query);
 
     }
 

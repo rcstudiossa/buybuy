@@ -11,20 +11,20 @@ import br.com.rss.buybuy.business.CrudBS;
 import br.com.rss.buybuy.model.CategoriaModel;
 import br.com.rss.buybuy.util.Utilitario;
 
-public class CategoriaActivity extends TemplateActivity<CategoriaModel> {
+public class CategoriaCrudActivity extends TemplateActivity<CategoriaModel> {
 
     private CategoriaBS categoriaBS;
     private EditText nomeET;
     private CheckBox mFlagAtivo;
 
 
-    public CategoriaActivity() {
+    public CategoriaCrudActivity() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_categoria_crud);
+        setContentView(R.layout.activity_crud_categoria);
 
         super.onCreate(savedInstanceState);
 
@@ -71,7 +71,7 @@ public class CategoriaActivity extends TemplateActivity<CategoriaModel> {
         }
 
         if (!aviso.isEmpty()) {
-            Utilitario.alertar(CategoriaActivity.this, aviso);
+            Utilitario.alertar(CategoriaCrudActivity.this, aviso);
         }
 
         return valido;
@@ -100,7 +100,7 @@ public class CategoriaActivity extends TemplateActivity<CategoriaModel> {
 
     protected void voltar() {
 
-        Intent intent = new Intent(CategoriaActivity.this, MainActivity.class);
+        Intent intent = new Intent(CategoriaCrudActivity.this, MainActivity.class);
         intent.putExtra("fragment", R.id.nav_categoria);
         startActivity(intent);
         finish();

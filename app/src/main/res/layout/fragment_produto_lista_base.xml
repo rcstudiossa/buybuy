@@ -5,16 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ProdutoListaBaseFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_lista"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingStart="12dp"
-        android:paddingEnd="2dp"
-        android:scrollbars="vertical"
-        android:scrollbarStyle="outsideInset"
-        tools:listitem="@layout/item_produto_lista_base" />
+    <include layout="@layout/rv_categorias_produtos_lista_base" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_novo"

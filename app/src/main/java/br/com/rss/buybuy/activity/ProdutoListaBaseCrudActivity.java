@@ -15,7 +15,6 @@ import android.widget.Spinner;
 import java.util.List;
 
 import br.com.rss.buybuy.R;
-import br.com.rss.buybuy.adapter.ProdutoAdapter;
 import br.com.rss.buybuy.business.ComboBS;
 import br.com.rss.buybuy.business.ProdutoBS;
 import br.com.rss.buybuy.business.ProdutoListaBaseBS;
@@ -25,23 +24,23 @@ import br.com.rss.buybuy.model.ProdutoListaBaseModel;
 import br.com.rss.buybuy.model.ProdutoModel;
 import br.com.rss.buybuy.util.Utilitario;
 
-public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseModel> {
+public class ProdutoListaBaseCrudActivity extends TemplateActivity<ProdutoListaBaseModel> {
 
     private ProdutoListaBaseBS produtoListaBaseBS;
     private ProdutoModel produtoModel;
+    private AutoCompleteTextView etProdutos;
+    private ImageView ivListarProdutos;
     private EditText etQuantidade;
     private Spinner spFrequencia;
-    private ImageView ivListarProdutos;
-    private AutoCompleteTextView etProdutos;
 
 
-    public ProdutoListaBaseActivity() {
+    public ProdutoListaBaseCrudActivity() {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        setContentView(R.layout.activity_produto_lista_base_crud);
+        setContentView(R.layout.activity_crud_produto_lista_base);
 
         super.onCreate(savedInstanceState);
 
@@ -75,13 +74,13 @@ public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseM
         ArrayAdapter<ProdutoModel> spProdutoAdapter;
         ArrayAdapter<FrequenciaModel> spFrequenciaAdapter;
 
-        List<ProdutoModel> produtos = new ProdutoBS(ProdutoListaBaseActivity.this).pesquisarAtivos(false);
+        List<ProdutoModel> produtos = new ProdutoBS(ProdutoListaBaseCrudActivity.this).pesquisarAtivos(false);
 
         spProdutoAdapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, produtos);
         etProdutos.setAdapter(spProdutoAdapter);
         etProdutos.setThreshold(1);
 
-        List<FrequenciaModel> frequencias = new ComboBS(ProdutoListaBaseActivity.this).pesquisarFrequencias();
+        List<FrequenciaModel> frequencias = new ComboBS(ProdutoListaBaseCrudActivity.this).pesquisarFrequencias();
 
         spFrequenciaAdapter = new ArrayAdapter<>(this, R.layout.spinner_dropdown_item, frequencias);
         spFrequencia.setAdapter(spFrequenciaAdapter);
@@ -124,7 +123,7 @@ public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseM
         ivListarProdutos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ProdutoListaBaseActivity.this, CategoriaProdutoRVActivity.class);
+                Intent intent = new Intent(ProdutoListaBaseCrudActivity.this, ProdutoRVActivity.class);
                 startActivityForResult(intent, 1);
             }
         });
@@ -207,7 +206,7 @@ public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseM
         }
 
         if (!aviso.isEmpty()) {
-            Utilitario.alertar(ProdutoListaBaseActivity.this, aviso);
+            Utilitario.alertar(ProdutoListaBaseCrudActivity.this, aviso);
         }
 
         return valido;
@@ -231,7 +230,12 @@ public class ProdutoListaBaseActivity extends TemplateActivity<ProdutoListaBaseM
 
         produtoListaBaseBS.gravar(this.crudModel);
 
-        Utilitario.avisoSucesso(getApplicationContext());
+        Intent intent = new Intent();
+        intent.putExtra("registro", this.crudModel);
+
+        setResult(RESULT_OK, intent);
+
+        Utilitario.aviso(getString(R.string.produto_adicionado),getApplicationContext());
 
         voltar();
 

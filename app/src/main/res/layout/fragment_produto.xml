@@ -3,18 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.">
+    tools:context=".fragment.ProdutoFragment">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_lista_categorias"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingStart="12dp"
-        android:paddingEnd="2dp"
-        android:scrollbars="vertical"
-        android:scrollbarStyle="outsideInset"
-        tools:listitem="@layout/item_rv_categorias" />
+    <include layout="@layout/rv_categorias_produtos" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_novo"

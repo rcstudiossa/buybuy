@@ -7,6 +7,6 @@ package br.com.rss.buybuy.util;
 public class Constantes {
 
     public static final String BUYBUY_DB = "buybuy";
-    public static final int DATABASE_VERSION = 6;
+    public static final int DATABASE_VERSION = 7;
 
 }

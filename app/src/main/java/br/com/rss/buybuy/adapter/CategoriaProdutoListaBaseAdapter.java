@@ -13,35 +13,35 @@ import java.util.Locale;
 
 import br.com.rss.buybuy.R;
 import br.com.rss.buybuy.model.CategoriaModel;
-import br.com.rss.buybuy.model.ProdutoModel;
+import br.com.rss.buybuy.model.ProdutoListaBaseModel;
 
-public class CategoriaProdutoAdapter extends RecyclerView.Adapter<CategoriaProdutoAdapter.ViewHolder> {
+public class CategoriaProdutoListaBaseAdapter extends RecyclerView.Adapter<CategoriaProdutoListaBaseAdapter.ViewHolder> {
 
     Context context;
     protected List<CategoriaModel> mList;
     protected LayoutInflater mLayoutInflater;
 
-    public CategoriaProdutoAdapter(Context c, List<CategoriaModel> l){
+    public CategoriaProdutoListaBaseAdapter(Context c, List<CategoriaModel> l){
         this.context = c;
         mList = l;
         mLayoutInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
-    public CategoriaProdutoAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = mLayoutInflater.inflate(R.layout.item_produtos_categorias_rv, viewGroup, false);
-        CategoriaProdutoAdapter.ViewHolder mvh = new CategoriaProdutoAdapter.ViewHolder(v);
+    public CategoriaProdutoListaBaseAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View v = mLayoutInflater.inflate(R.layout.item_produtos_lista_base_categorias_rv, viewGroup, false);
+        CategoriaProdutoListaBaseAdapter.ViewHolder mvh = new CategoriaProdutoListaBaseAdapter.ViewHolder(v);
         return mvh;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder categoriaProdutoVH, final int position) {
+    public void onBindViewHolder(ViewHolder categoriaProdutoListaBaseVH, final int position) {
 
-        categoriaProdutoVH.nome.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getNome()));
+        categoriaProdutoListaBaseVH.nome.setText(String.format(Locale.getDefault(), "%s", mList.get(position).getNome()));
 
-        categoriaProdutoVH.mList = mList.get(position).getProdutos();
-        categoriaProdutoVH.adapter = new ProdutoAdapter(this.context, categoriaProdutoVH.mList);
-        categoriaProdutoVH.recyclerView.setAdapter(categoriaProdutoVH.adapter);
+        categoriaProdutoListaBaseVH.mList = mList.get(position).getProdutosListaBase();
+        categoriaProdutoListaBaseVH.adapter = new ProdutoListaBaseAdapter(this.context, categoriaProdutoListaBaseVH.mList);
+        categoriaProdutoListaBaseVH.recyclerView.setAdapter(categoriaProdutoListaBaseVH.adapter);
 
     }
 
@@ -60,10 +60,10 @@ public class CategoriaProdutoAdapter extends RecyclerView.Adapter<CategoriaProdu
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
 
-        private List<ProdutoModel> mList;
+        private List<ProdutoListaBaseModel> mList;
         public TextView nome;
         public RecyclerView recyclerView;
-        public ProdutoAdapter adapter;
+        public ProdutoListaBaseAdapter adapter;
 
         public ViewHolder(View itemView) {
             super(itemView);

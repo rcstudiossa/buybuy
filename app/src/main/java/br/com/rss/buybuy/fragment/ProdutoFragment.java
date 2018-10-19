@@ -34,7 +34,7 @@ public class ProdutoFragment extends TemplateFragment {
 
         categoriaBS = new CategoriaBS(getActivity());
 
-        mList = categoriaBS.pesquisarProdutos();
+        mList = categoriaBS.pesquisarCategoriasProdutos();
         adapter = new CategoriaProdutoAdapter(getActivity(), mList);
         mRecyclerView.setAdapter(adapter);
 
@@ -57,7 +57,7 @@ public class ProdutoFragment extends TemplateFragment {
 
         super.onResume();
 
-        mList = categoriaBS.pesquisarProdutos();
+        mList = categoriaBS.pesquisarCategoriasProdutos();
         atualizarLista();
 
     }
@@ -78,7 +78,7 @@ public class ProdutoFragment extends TemplateFragment {
 
     protected void pesquisarAtivos(String query) {
 
-        mList = categoriaBS.pesquisarProdutos(query);
+        mList = categoriaBS.pesquisarCategoriasProdutos(query);
         atualizarLista();
 
     }

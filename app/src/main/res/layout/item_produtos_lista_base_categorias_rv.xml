@@ -26,7 +26,7 @@
             android:textColor="@android:color/black" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_lista_produtos"
+            android:id="@+id/rv_lista_produtos_lista_base"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
@@ -34,7 +34,7 @@
             android:paddingEnd="2dp"
             android:scrollbars="vertical"
             android:scrollbarStyle="outsideInset"
-            tools:listitem="@layout/item_produto" />
+            tools:listitem="@layout/item_produto_lista_base" />
 
     </LinearLayout>
 

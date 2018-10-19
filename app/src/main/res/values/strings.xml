@@ -12,7 +12,8 @@
 
     <string name="activity_categoria">Categorias</string>
     <string name="activity_produto">Produtos</string>
-    <string name="activity_produto_lista_base">Lista Base</string>
+    <string name="activity_lista_base">Listas Base</string>
+    <string name="dialog_lista_base">Cadastrar Lista Base</string>
 
 
     /*PROMPTS, HINT*/
@@ -26,9 +27,15 @@
     <string name="prompt_produto_lista_base">Produto*</string>
     <string name="prompt_pesquisar_categoria">Pesquisar Categoria...</string>
     <string name="prompt_pesquisar_produto">Pesquisar Produto...</string>
+    <string name="prompt_pesquisar_lista_base">Pesquisar Lista Base...</string>
+    <string name="prompt_uso_recorrente">Lista de uso recorrente</string>
+    <string name="prompt_add_produtos">Adicionar Produto</string>
 
+
+    /*INFO*/
 
     <string name="gravar">Gravar</string>
+    <string name="produto_adicionado">Produto adicionado com sucesso</string>
 
 
 </resources>

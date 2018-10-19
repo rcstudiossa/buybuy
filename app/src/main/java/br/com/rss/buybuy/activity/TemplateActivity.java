@@ -1,6 +1,7 @@
 package br.com.rss.buybuy.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -17,7 +18,7 @@ import br.com.rss.buybuy.business.CrudBS;
 public abstract class TemplateActivity<T> extends AppCompatActivity {
 
     protected T crudModel;
-    protected Button btnGravar;
+    protected FloatingActionButton btnGravar;
     private Toolbar toolbar;
 
     @Override
@@ -33,7 +34,7 @@ public abstract class TemplateActivity<T> extends AppCompatActivity {
 
     protected void instanciarComponentes() {
 
-        this.btnGravar = findViewById(R.id.btn_gravar);
+        this.btnGravar = findViewById(R.id.fab_gravar);
         this.toolbar = findViewById(R.id.toolbar);
 
         this.btnGravar.setOnClickListener(new View.OnClickListener() {
